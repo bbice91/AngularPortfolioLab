@@ -9,6 +9,8 @@ import { hobbiesComponent } from './hobbies/hobbies.component';
 import { MessagesComponent } from './messages/messages.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { dogComponent } from './dog/dog.component';
+import { CinemaComponent } from './cinema/cinema.component';
 
 @NgModule({
   imports: [
@@ -20,8 +22,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     DashboardComponent,
     hobbiesComponent,
+    dogComponent,
     hobbyDetailComponent,
-    MessagesComponent
+    MessagesComponent,
   ],
   bootstrap: [ AppComponent ]
 })

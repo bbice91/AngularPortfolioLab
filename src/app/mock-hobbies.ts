@@ -1,11 +1,11 @@
 import { hobby } from './hobby';
 
-export const hobbies: hobby[] = [
-  { id: 11, name: 'Display Tech' },
-  { id: 12, name: 'Graphics Tec*' },
-  { id: 13, name: 'Cinema' },
-  { id: 14, name: 'Cuisine' },
-  { id: 15, name: 'Color Theory' },
-  { id: 16, name: 'Art' },
-  { id: 17, name: 'Avant Garde' },
+export const HOBBIES: hobby[] = [
+  { id: 1, name: 'Display Tech', score: 0 },
+  { id: 2, name: 'Graphics Tech', score: 0 },
+  { id: 3, name: 'Cinema',score: 0 },
+  { id: 4, name: 'Cuisine', score: 0 },
+  { id: 5, name: 'Color Theory', score: 0 },
+  { id: 6, name: 'Art', score: 0 },
+  { id: 7, name: 'Avant Garde', score: 0 },
 ];

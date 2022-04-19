@@ -1,0 +1,9 @@
+<h2>My favorite Films</h2>
+<ul class="cinema">
+  <li *ngFor="let cinema of movies">
+    <a>
+      <span class="badge">{{cinema.id}}</span> {{cinema.name}}
+    </a>
+  </li>
+</ul>
+

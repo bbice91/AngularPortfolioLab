@@ -1,6 +1,6 @@
 import { browser, element, by, ElementFinder } from 'protractor';
 
-const expectedH1 = 'Tour of Heroes';
+const expectedH1 = 'Tour of dog';
 const expectedTitle = `${expectedH1}`;
 const targetHero = { id: 15, name: 'Magneta' };
 const targetHeroDashboardIndex = 3;
@@ -45,11 +45,11 @@ describe('Tutorial part 5', () => {
 
       appDashboardHref: navElts.get(0),
       appDashboard: element(by.css('app-root app-dashboard')),
-      topHeroes: element.all(by.css('app-root app-dashboard > div a')),
+      topdog: element.all(by.css('app-root app-dashboard > div a')),
 
-      appHeroesHref: navElts.get(1),
-      appHeroes: element(by.css('app-root app-heroes')),
-      allHeroes: element.all(by.css('app-root app-heroes li')),
+      appdogHref: navElts.get(1),
+      appdog: element(by.css('app-root app-dog')),
+      alldog: element.all(by.css('app-root app-dog li')),
       heroDetail: element(by.css('app-root app-hero-detail > div'))
     };
   }
@@ -64,7 +64,7 @@ describe('Tutorial part 5', () => {
       await expectHeading(1, expectedH1);
     });
 
-    const expectedViewNames = ['Dashboard', 'Heroes'];
+    const expectedViewNames = ['Dashboard', 'dog'];
     it(`has views ${expectedViewNames}`, async () => {
       const viewNames = await getPageElts().navElts.map(el => el!.getText());
       expect(viewNames).toEqual(expectedViewNames);
@@ -81,9 +81,9 @@ describe('Tutorial part 5', () => {
 
     beforeAll(() => browser.get(''));
 
-    it('has top heroes', async () => {
+    it('has top dog', async () => {
       const page = getPageElts();
-      expect(await page.topHeroes.count()).toEqual(4);
+      expect(await page.topdog.count()).toEqual(4);
     });
 
     it(`selects and routes to ${targetHero.name} details`, dashboardSelectTargetHero);
@@ -92,21 +92,21 @@ describe('Tutorial part 5', () => {
 
     it(`saves and shows ${newHeroName} in Dashboard`, async () => {
       await element(by.buttonText('go back')).click();
-      const targetHeroElt = getPageElts().topHeroes.get(targetHeroDashboardIndex);
+      const targetHeroElt = getPageElts().topdog.get(targetHeroDashboardIndex);
       expect(await targetHeroElt.getText()).toEqual(newHeroName);
     });
 
   });
 
-  describe('Heroes tests', () => {
+  describe('dog tests', () => {
 
     beforeAll(() => browser.get(''));
 
-    it('can switch to Heroes view', async () => {
-      await getPageElts().appHeroesHref.click();
+    it('can switch to dog view', async () => {
+      await getPageElts().appdogHref.click();
       const page = getPageElts();
-      expect(await page.appHeroes.isPresent()).toBeTruthy();
-      expect(await page.allHeroes.count()).toEqual(10, 'number of heroes');
+      expect(await page.appdog.isPresent()).toBeTruthy();
+      expect(await page.alldog.count()).toEqual(10, 'number of dog');
     });
 
     it('can route to hero details', async () => {
@@ -121,7 +121,7 @@ describe('Tutorial part 5', () => {
 
     it(`updates hero name (${newHeroName}) in details view`, updateHeroNameInDetailView);
 
-    it(`shows ${newHeroName} in Heroes list`, async () => {
+    it(`shows ${newHeroName} in dog list`, async () => {
       await element(by.buttonText('go back')).click();
       const expectedText = `${targetHero.id} ${newHeroName}`;
       expect(await getHeroLiEltById(targetHero.id).getText()).toEqual(expectedText);
@@ -130,7 +130,7 @@ describe('Tutorial part 5', () => {
   });
 
   async function dashboardSelectTargetHero() {
-    const targetHeroElt = getPageElts().topHeroes.get(targetHeroDashboardIndex);
+    const targetHeroElt = getPageElts().topdog.get(targetHeroDashboardIndex);
     expect(await targetHeroElt.getText()).toEqual(targetHero.name);
     await targetHeroElt.click();
 
